@@ -5,6 +5,7 @@ extern "C" {
 #include <iostream>
 #include <memory>
 #include <sys/render.hpp>
+#include <man/entitymanager.hpp>
 
 constexpr uint32_t kSCRWIDTH { 480 };
 constexpr uint32_t kSCRHEIGHT { 272 };

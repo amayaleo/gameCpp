@@ -1,4 +1,6 @@
 ################################################################################################
+###################################LIBRARY_TINYPTC##############################################
+################################################################################################
 ########################################MACROS##################################################
 ################################################################################################
 #$(1)
@@ -28,7 +30,7 @@ ARFLAGS 	:= -crs
 RANLIB		:= ranlib
 APP         := libpicopng.a
 CCFLAGS     := -Wall -pedantic
-CCFLAGS += -std=c++14
+#CCFLAGS		+= -std=c++14
 CFLAGS     	:= $(CCFLAGS)
 CC          := g++
 C			:= gcc
@@ -46,15 +48,13 @@ endif
 
 
 ALLCPPS 	:= $(shell find src/ -type f -iname *.cpp)
-#ALLOCPPSOBJ  := $(patsubst %.cpp,%.o,$(ALLCPPS))
 ALLCS		:= $(shell find src/ -type f -iname *.c)
-#ALLCSOBJ	:= $(patsubst %.c,%.o,$(ALLCS))
 SUBDIRS := $(shell find $(SRC) -type d)
 OBJSUBDIRS := $(patsubst $(SRC)%,$(OBJ)%,$(SUBDIRS))
 ALLOBJ :=       $(foreach F,$(ALLCPPS) $(ALLCS),$(call C2O,$(F)))
 
-.PHONY: dir
-
+.PHONY: info clean cleanall
+#Generate library
 $(APP) : $(OBJSUBDIRS) $(ALLOBJ)
 	$(AR) $(ARFLAGS) $(APP) $(ALLOBJ)
 	$(RANLIB) $(APP)
@@ -69,7 +69,7 @@ $(foreach F,$(ALLCS),$(eval $(call COMPILE,$(C),$(call C2O,$(F)),$(F),$(call C2H
 #%.o : %.cpp
 #	$(CC) -o $(patsubst $(SRC)%,$(OBJ)%,$@) -c $^ $(CCFLAGS)
 
-dir:
+info:
 	$(info $(SUBDIRS))
 	$(info $(OBJSUBDIRS))
 	

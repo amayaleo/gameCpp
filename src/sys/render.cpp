@@ -18,11 +18,12 @@ namespace ECS{
 
 	RenderSystem_t::RenderSystem_t(u_int32_t x, u_int32_t y){
 		ptc_open("window",x,y);
-		std::cout<< "::RenderSystem_t(u_int32_t,u_int32_t)" <<std::endl;
+		std::cout<< "RenderSystem_t(u_int32_t,u_int32_t)" <<std::endl;
 
 	}
 
 	RenderSystem_t::~RenderSystem_t(){
 		std::cout<< "~RenderSystem_t()" <<std::endl;
+		ptc_close();
 	}
 }//namespace ECS
