@@ -13,8 +13,11 @@ constexpr uint32_t kSCRHEIGHT { 272 };
 int main(void){
   try
   {
-    ECS::RenderSystem_t render(kSCRWIDTH , kSCRHEIGHT );
-    while(!ptc_process_events());
+      ECS::EntityManager_t EntityMan{};
+      EntityMan.createEntity(20,40,0x00f1f1f1);
+      const ECS::RenderSystem_t Render{ kSCRWIDTH , kSCRHEIGHT , EntityMan}; 
+	  while(Render.update());
+        
   }
   catch(...)
   {

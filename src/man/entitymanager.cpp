@@ -2,8 +2,8 @@
 
 
 #include <iostream>
-#include <man/entitymanager.hpp>
 #include <algorithm>
+#include <man/entitymanager.hpp>
 
 namespace ECS {
 	EntityManager_t::EntityManager_t()

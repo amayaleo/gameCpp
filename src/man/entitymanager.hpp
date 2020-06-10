@@ -20,7 +20,7 @@ namespace ECS{
 	{
 		static constexpr std::size_t kNUMINITIALENTITIES{1000};
 		explicit EntityManager_t();
-		void createEntity(uint32_t w , uint32_t h , uint32_t color);
+		void createEntity(uint32_t , uint32_t , uint32_t );
 	private:
 		std::vector<Entity_t> m_Entity{};
 	};
