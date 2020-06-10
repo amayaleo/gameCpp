@@ -3,26 +3,23 @@ extern "C" {
 }
 #include <cstdint>
 #include <iostream>
-#include <vector>
+#include <memory>
+#include <sys/render.hpp>
 
+constexpr uint32_t kSCRWIDTH { 480 };
+constexpr uint32_t kSCRHEIGHT { 272 };
 
-int main(){
-int  width = 480;
-int height = 272;
-    uint32_t screen[480 * 272];
-    std::vector<uint32_t> vector_screen;
-
-    ptc_open("Juego",width,height);
-    while(true){
-    for(uint32_t i=0;i < (480*272);++i){
-            screen[i]=0x00999999;
-
-        }
-        
-        ptc_update(screen);
-    }
-    ptc_close();
-
-    std::cout<< "my first program gamer " << std::endl;
-return 0;
+int main(void){
+  try
+  {
+    ECS::RenderSystem_t render(kSCRWIDTH , kSCRHEIGHT );
+    while(!ptc_process_events());
+  }
+  catch(...)
+  {
+    std::cout<< "break program"<<std::endl;
+  }
+        std::cout<< "end program"<<std::endl;
+  return 0;
 }
+
