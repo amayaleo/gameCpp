@@ -23,7 +23,7 @@ int main(void){
   {
     std::cout<< "break program"<<std::endl;
   }
-        std::cout<< "end program"<<std::endl;
+        std::cout<< "end"<<std::endl;
   return 0;
 }
 
