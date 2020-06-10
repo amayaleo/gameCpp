@@ -2,27 +2,28 @@
 #include <iostream>
 #include <cstdint>
 #include <vector>
+#include <util/gamecontext.hpp>
+
 
 namespace ECS{
-	struct Entity_t{
-		explicit Entity_t( uint32_t _w , uint32_t _h)
-		: w (_w) , h(_h)
-		{
-			sprite.reserve(w*h);	
-		}
-	
-		uint32_t x { 0 } , y { 0 };	
-		uint32_t w { 0 } , h { 0 };
-		std::vector<uint32_t>sprite{ };
-	};
+	struct Entity;
+	struct  GameContext_t;
 
-	struct  EntityManager_t
+	struct  EntityManager_t  : public GameContext_t
 	{
 		static constexpr std::size_t kNUMINITIALENTITIES{1000};
 		explicit EntityManager_t();
 		void createEntity(uint32_t , uint32_t , uint32_t );
+		~EntityManager_t();
+		
+		const VecEntities_t& getEntities() const override { return m_Entity; };
+		      VecEntities_t& getEntities()  override { return m_Entity; };
+		//const std::vector<PhysicsComponent_t>& getPhysicsComponent() const override {};
+         //	  std::vector<PhysicsComponent_t>& getPhysicsComponent()	   override {};
+
 	private:
 		std::vector<Entity_t> m_Entity{};
+		//ComponentStorage_t m_components;
 	};
 
 }
