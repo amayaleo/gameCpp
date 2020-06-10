@@ -9,17 +9,17 @@ extern "C" {
 int main(){
 int  width = 480;
 int height = 272;
-uint32_t screen[480 * 272];
-ptc_open("Juego",width,height);
-while(true){
-for(uint32_t i=0;i < (480*272);++i){
-        screen[i]=0x00999999;
+    uint32_t screen[480 * 272];
+    ptc_open("Juego",width,height);
+    while(true){
+    for(uint32_t i=0;i < (480*272);++i){
+          //  screen[i]=0x00999999;
+        }
+        
+        ptc_update(screen);
     }
-    
-    ptc_update(screen);
-}
-ptc_close();
+    ptc_close();
 
-std::cout<< "my first program gamer " << std::endl;
+    std::cout<< "my first program gamer " << std::endl;
 return 0;
 }
