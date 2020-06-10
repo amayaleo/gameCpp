@@ -1,6 +1,6 @@
 #pragma once
 #include <cstdint>
-#include "../util/typealiases.hpp"
+#include <util/typealiases.hpp>
 
 namespace ECS
 {
@@ -10,12 +10,12 @@ namespace ECS
         : entityID { eid }
         {}
 
-        std::size_t ComponentID { ++nextID } ;
+        std::size_t ComponentID { ++ nextID } ;
         EntityID_t entityID { 0 };
 
     private:
-        static std::size_t nextID  ;
-        //inline static std::size_t nextID { 0 } ;
+        //static std::size_t nextID  ;
+        inline static std::size_t nextID { 0 } ;
     };
     
     
