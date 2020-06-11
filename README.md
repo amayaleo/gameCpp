@@ -2,6 +2,7 @@
 
 # app for game in source cpp
 # std c++ 17
+#free memory
 
 sudo apt-get install -y libncurses5-dev libncursesw5-dev
 
