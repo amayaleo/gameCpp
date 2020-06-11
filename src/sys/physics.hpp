@@ -1,6 +1,5 @@
 
 #pragma once
-//#include "util/gamecontext.hpp"
 
 namespace ECS 
 {

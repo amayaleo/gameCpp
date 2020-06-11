@@ -7,7 +7,7 @@ struct EntityManager_t;
 
 struct RenderSystem_t{
                 explicit RenderSystem_t(uint32_t , uint32_t , EntityManager_t&);
-                const bool update() const;
+                const bool update(EntityManager_t&) const;
                 ~RenderSystem_t();
 	};
 

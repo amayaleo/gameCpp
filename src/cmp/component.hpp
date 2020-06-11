@@ -14,7 +14,6 @@ namespace ECS
         EntityID_t entityID { 0 };
 
     private:
-        //static std::size_t nextID  ;
         inline static std::size_t nextID { 0 } ;
     };
     

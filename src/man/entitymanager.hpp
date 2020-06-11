@@ -3,6 +3,7 @@
 #include <cstdint>
 #include <vector>
 #include <util/gamecontext.hpp>
+#include <string_view>
 
 
 namespace ECS{
@@ -13,7 +14,9 @@ namespace ECS{
 	{
 		static constexpr std::size_t kNUMINITIALENTITIES{1000};
 		explicit EntityManager_t();
-		void createEntity(uint32_t , uint32_t , uint32_t );
+		void createEntity(uint32_t , uint32_t , std::string_view );
+			void createEntity(uint32_t,uint32_t,uint32_t,uint32_t, uint32_t);
+
 		~EntityManager_t();
 		
 		const VecEntities_t& getEntities() const override { return m_Entity; };

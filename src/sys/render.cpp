@@ -24,7 +24,7 @@ namespace ECS{
 		ptc_close();
 	}
 
-	const bool RenderSystem_t::update() const{
+	const bool RenderSystem_t::update(EntityManager_t& e) const{
 		ptc_process_events();
 		return true;
 	}

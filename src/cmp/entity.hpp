@@ -34,10 +34,20 @@ namespace ECS{
 
 
 			decodePNG(pixels ,dw,dh,filevec.data() , filevec.size());
-				sprite.resize(pixels.size()/4);
-				std::memcpy(sprite.data() , pixels.data() , pixels.size());
-				w=dw;
-				h=dh;
+				// sprite.resize(pixels.size()/4);
+				// std::memcpy(sprite.data() , pixels.data() , pixels.size());
+				// w=dw;
+				// h=dh;
+						w=dw;	h=dh;
+			sprite.reserve(pixels.size()/4);
+			for (auto p =pixels.begin() ; p != pixels.end() ; p +=4){
+				uint32_t pixel = 
+				static_cast <uint32_t>(*(p+0))<<16
+			|	static_cast <uint32_t>(*(p+1))<<8
+			|	static_cast <uint32_t>(*(p+2))
+			|	static_cast <uint32_t>(*(p+3))<<24;
+				sprite.push_back(pixel);
+			}
 
 		}
 		//Entity_t& operator=(const Entity_t& other)=default;
