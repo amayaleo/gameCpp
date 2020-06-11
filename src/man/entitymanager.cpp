@@ -8,27 +8,36 @@ extern "C" {
 }
 //#include <string_view>
 
+#if defined(__has_include) && __has_include(<string_view>)
+    #include <string_view>
+#else
+    #include <experimental/string_view>
+#endif
+
+
 namespace ECS {
 	EntityManager_t::EntityManager_t()
 	{
 		m_Entity.reserve(kNUMINITIALENTITIES);
 	}
 
-	void EntityManager_t::createEntity(uint32_t w ,uint32_t h , std::string_view fname)
+	void EntityManager_t::createEntity(uint32_t w ,uint32_t h , std::string fname)
 	{
-		auto & e = m_Entity.emplace_back(w,h);
-		e.x = 10;
-		e.y = 10;
-		std::fill(e.sprite.begin() , e.sprite.end(),0x666666);
+		// auto & e = m_Entity.emplace_back(w,h);
+		// e.x = 10;
+		// e.y = 10;
+		// std::fill(e.sprite.begin() , e.sprite.end(),0x666666);
 
 	}
 
+	
+	
 	void EntityManager_t::createEntity(uint32_t x,uint32_t y ,uint32_t w ,uint32_t h , uint32_t s)
 	{
-		auto & e = m_Entity.emplace_back(w,h);
-		e.x = 10;
-		e.y = 10;
-		std::fill(e.sprite.begin() , e.sprite.end(),s);
+		// auto & e = m_Entity.emplace_back(w,h);
+		// e.x = 10;
+		// e.y = 10;
+		// std::fill(e.sprite.begin() , e.sprite.end(),s);
 
 	}
 

@@ -2,9 +2,9 @@
 #include <iostream>
 #include <cstdint>
 #include <vector>
-#include <string_view>
+#include <string>
 #include <util/gamecontext.hpp>
-//#include <cmp/physics.hpp>
+
 
 
 namespace ECS{
@@ -16,8 +16,6 @@ namespace ECS{
 	{
 		static constexpr std::size_t kNUMINITIALENTITIES{1000};
 		explicit EntityManager_t();
-		void createEntity(uint32_t , uint32_t , std::string_view );
-		void createEntity(uint32_t,uint32_t,uint32_t,uint32_t, uint32_t);
 
 		~EntityManager_t();
 		
@@ -25,6 +23,10 @@ namespace ECS{
 		      VecEntities_t& getEntities()  override { return m_Entity; };
 		const std::vector<PhysicsComponent_t>& getPhysicsComponent() const override {};
          	  std::vector<PhysicsComponent_t>& getPhysicsComponent()	   override {};
+
+		void createEntity(uint32_t ,uint32_t , std::string );
+		void createEntity(uint32_t,uint32_t,uint32_t,uint32_t, uint32_t);
+
 
 	private:
 		std::vector<Entity_t> m_Entity{};
