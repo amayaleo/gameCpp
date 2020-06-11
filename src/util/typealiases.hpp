@@ -2,11 +2,7 @@
 //#include <cmp/entity.hpp>
 #include <vector>
 
-    struct  Entity_t;
-
-    using VecEntities_t = std::vector<Entity_t>;
-
-
+namespace ECS{
      struct  Entity_t;
 
      using VecEntities_t = std::vector<Entity_t>;
