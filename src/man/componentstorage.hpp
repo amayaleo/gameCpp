@@ -1,6 +1,5 @@
 #pragma once
 #include <vector>
-//#include <cmp/physics.hpp>
 
 namespace ECS {
 
@@ -15,7 +14,6 @@ struct PhysicsComponent_t;
         ComponentStorage_t(ComponentStorage_t&&) = delete;
         ComponentStorage_t operator&(const ComponentStorage_t&) = delete;
         ComponentStorage_t operator&&( ComponentStorage_t&&) = delete;
-        //PhysicsComponent_t& createPhysicsComponent();
        //RenderComponent_t& createRenderComponent();
 
 
@@ -23,7 +21,7 @@ struct PhysicsComponent_t;
         const std::vector<PhysicsComponent_t>& getPhysicsComponent() const { return m_physicsComponent;};
         PhysicsComponent_t& createPhysicsComponent()
         {
-            auto & compo =  m_physicsComponents.emplace_back(10); 
+            auto & compo =  m_physicsComponent.emplace_back(10); 
             return compo;
         }
         ;

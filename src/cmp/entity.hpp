@@ -34,10 +34,6 @@ namespace ECS{
 
 
 			decodePNG(pixels ,dw,dh,filevec.data() , filevec.size());
-				// sprite.resize(pixels.size()/4);
-				// std::memcpy(sprite.data() , pixels.data() , pixels.size());
-				// w=dw;
-				// h=dh;
 						w=dw;	h=dh;
 			sprite.reserve(pixels.size()/4);
 			for (auto p =pixels.begin() ; p != pixels.end() ; p +=4){
